@@ -1,0 +1,27 @@
+footer{
+    margin-top: auto;
+
+    color: rgb(255, 255, 255);
+    background-color: rgb(60, 60, 60);
+
+    padding: 70px 50px;
+
+    margin: 10% -8px -0.9% -1%;
+}
+
+footer .rodape p { 
+    padding-left: 24px;
+    font-size: 16px;
+}
+
+footer .link li a:active,
+footer .link li a:hover,
+footer .link li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+footer .link li{
+    list-style-type: none;
+    margin: 20px 0px 0% 0%;
+}
