@@ -8,23 +8,7 @@ for (i in parametr) {
     values[j[0]] = unescape(j[1]);
 }
 
-let myHeading = document.querySelector(".info");
-
-function readTextFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
-                myHeading.innerHTML = allText;
-            }
-        }
-    };
-    rawFile.send(null);
-}
-
-readTextFile(`public/info/${values.path}.html`);
+readTextFile(`public/info/${values.path}.html`, ".info");
 
 links = [login_button, register_button];
 
