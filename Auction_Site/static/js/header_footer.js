@@ -1,9 +1,9 @@
 // import readTextFile from "import.js";
 
-readTextFile("public/auxiliary/header.html", "header");
-readTextFile("public/auxiliary/footer.html", "footer");
+readTextFile("auxiliary/header.html", "header");
+readTextFile("../static/auxiliary/footer.html", "footer");
 
-readTextFile("public/auxiliary/dialogue.html", "main .dialogue");
+readTextFile("../static/auxiliary/dialogue.html", "main .dialogue");
 
 /*----------------------------------------------------------------------------*/
 

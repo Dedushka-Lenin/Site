@@ -18,6 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from login_app.views import index_page
+from login_app.views import info_page
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index_page),
+    path('info/', info_page),
 ]

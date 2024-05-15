@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">    
 <head>  
@@ -8,12 +10,12 @@
 
 <!-------------------------------------------------------------------------->
 
-    <link href="public/styles/style.css" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/style.css'%}" rel="stylesheet" type="text/css" >
 
-    <link href="public/styles/1_header_style.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/2_main_style.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/3_footer_style.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/4_dialogue.css" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/1_header_style.css'%}" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/2_main_style.css'%}" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/3_footer_style.css'%}" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/4_dialogue.css'%}" rel="stylesheet" type="text/css" >
 
 <!-------------------------------------------------------------------------->
 
@@ -39,7 +41,7 @@
 
         <div class="Download_button container"><button class="flex centered" onclick="triggerDownload('question/you_are_gae.jpg')">
 
-            <div><img class="windows" src="public/images/windows.png" width="100" height="100" alt="Значок винды" /></div>
+            <div><img class="windows" src="{% static 'images/windows.png'%}" width="100" height="100" alt="Значок винды" /></div>
 
             <p>Скачать<br>Efficiency Hub</p>
 
@@ -78,10 +80,10 @@
 
     <footer></footer>
 
-    <script src="public/js/import.js"></script>
-    <script src="public/js/header_footer.js"></script>
+    <script src="{% static 'js/import.js'%}"></script>
+    <script src="{% static 'js/header_footer.js'%}"></script>
 
-    <script src="public/js/main.js"></script>
+    <script src="{% static 'js/main.js'%}"></script>
 
 </body>
 </html>
