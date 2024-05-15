@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">    
 <head>  
@@ -8,12 +10,13 @@
     
 <!-------------------------------------------------------------------------->
 
-    <link href="public/styles/style.css" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/style.css'%}" rel="stylesheet" type="text/css" >
 
-    <link href="public/styles/1_header_style.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/3_footer_style.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/4_dialogue.css" rel="stylesheet" type="text/css" >
-    <link href="public/styles/info.css" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/1_header_style.css'%}" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/3_footer_style.css'%}" rel="stylesheet" type="text/css" >
+    <link href="{% static 'styles/4_dialogue.css'%}" rel="stylesheet" type="text/css" >
+
+    <link href="{% static 'styles/info.css'%}" rel="stylesheet" type="text/css" >
 
 <!-------------------------------------------------------------------------->
 
@@ -40,10 +43,10 @@
 
     <footer></footer>
 
-    <script src="public/js/import.js"></script>
-    <script src="public/js/header_footer.js"></script>
+    <script src="{% static 'js/import.js'%}"></script>
+    <script src="{% static 'js/header_footer.js'%}"></script>
 
-    <script src="public/js/info.js"></script>
+    <script src="{% static 'js/info.js'%}"></script>
 
 </body>
 </html>

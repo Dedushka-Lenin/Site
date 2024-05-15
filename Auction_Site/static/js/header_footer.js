@@ -21,11 +21,3 @@ navToggle.addEventListener("click", function () {
         this.setAttribute("aria-expanded", "true");
     }
 });
-
-links = ["About_Us", "Projects", "Terms_of_use"];
-
-for (let elem of links) {
-    for (let item of document.getElementsByClassName(elem)) {
-        item.href = `info?path=${elem}`;
-    }
-}

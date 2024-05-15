@@ -8,10 +8,20 @@ for (i in parametr) {
     values[j[0]] = unescape(j[1]);
 }
 
-readTextFile(`public/info/${values.path}.html`, ".info");
+readTextFile(`../static/info/${values.path}.html`, ".info");
 
 links = [login_button, register_button];
 
 for (let elem of links) {
     elem.value = values.path;
+}
+
+/*----------------------------------------------------------------------------*/
+
+links = ["About_Us", "Projects", "Terms_of_use"];
+
+for (let elem of links) {
+    for (let item of document.getElementsByClassName(elem)) {
+        item.href = `?path=${elem}`;
+    }
 }
