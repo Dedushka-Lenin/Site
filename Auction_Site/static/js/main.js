@@ -32,16 +32,6 @@ for (let elem of list_button) {
 
 /*----------------------------------------------------------------------------*/
 
-links = ["About_Us", "Projects", "Terms_of_use"];
-
-for (let elem of links) {
-    for (let item of document.getElementsByClassName(elem)) {
-        item.href = `info?path=${elem}`;
-    }
-}
-
-/*----------------------------------------------------------------------------*/
-
 function triggerDownload(fileName) {
     var element = document.createElement("a");
     element.setAttribute("href", fileName);

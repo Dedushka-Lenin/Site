@@ -7,6 +7,16 @@ readTextFile("../static/auxiliary/dialogue.html", "main .dialogue");
 
 /*----------------------------------------------------------------------------*/
 
+links = ["About_Us", "Projects", "Terms_of_use"];
+
+for (let elem of links) {
+    for (let item of document.getElementsByClassName(elem)) {
+        item.href = `../info?path=${elem}`;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+
 let navToggle = document.querySelector(".nav__toggle");
 let navWrapper = document.querySelector(".nav__wrapper");
 
