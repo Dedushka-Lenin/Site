@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'Auction_Site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',   # Используется PostgreSQL
-        'NAME': 'postgres', # Имя базы данных
-        'USER': 'postgres', # Имя пользователя
+        'NAME': 'site_bd', # Имя базы данных
+        'USER': 'site_admin', # Имя пользователя
         'PASSWORD': '248363XNo', # Пароль пользователя
         'HOST': 'localhost', # Наименование контейнера для базы данных в Docker Compose
         'PORT': 5432

@@ -1,5 +1,12 @@
 # Site
 
+BidMasters.com
+AuctionAce.com
+BiddingWarriors.com
+AuctionBazaar.com
+BidBound.com
+
+
 # pip freeze > requirements.txt // Заполняет requirements
 
 # pip install -r requirements.txt // Библиотеки

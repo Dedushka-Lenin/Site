@@ -24,5 +24,5 @@ from login_app.views import info_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_page),
-    path('info/', info_page),
+    path('info/<str:path>/', info_page),
 ]

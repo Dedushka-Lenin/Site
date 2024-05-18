@@ -1,9 +1,9 @@
 // import readTextFile from "import.js";
 
-readTextFile("../static/auxiliary/header.html", "header");
-readTextFile("../static/auxiliary/footer.html", "footer");
+readTextFile("../../static/auxiliary/header.html", "header");
+readTextFile("../../static/auxiliary/footer.html", "footer");
 
-readTextFile("../static/auxiliary/dialogue.html", "main .dialogue");
+readTextFile("../../static/auxiliary/dialogue.html", "main .dialogue");
 
 /*----------------------------------------------------------------------------*/
 
@@ -11,7 +11,7 @@ links = ["About_Us", "Projects", "Terms_of_use"];
 
 for (let elem of links) {
     for (let item of document.getElementsByClassName(elem)) {
-        item.href = `../info?path=${elem}`;
+        item.href = `../../info/${elem}/`;
     }
 }
 

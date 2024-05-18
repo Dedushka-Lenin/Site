@@ -48,7 +48,10 @@
     <script src="{% static 'js/import.js'%}"></script>
     <script src="{% static 'js/header_footer.js'%}"></script>
 
-    <script src="{% static 'js/info.js'%}"></script>
+    <script>
+        let path = "{{ path|escapejs }}";
+        readTextFile(`../../static/info/${path}.html`, ".info");
+    </script>
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 <nav class="wrapper site-header__wrapper">
     
-    <div class="link step"><a href="../"><h1> <img src="../static/images/application-logo(512x512).png" width="50" height="50" alt="Логатип" />Efficiency Hub
+    <div class="link step"><a href="../../"><h1> <img src="../../static/images/application-logo(512x512).png" width="50" height="50" alt="Логатип" />Efficiency Hub
     </h1></a></div>
 
     <button class="nav__toggle" aria-expanded="false" type="button">
-      <img src="../static/images/button_menu.png" width="30" height="30" alt="menu">
+      <img src="../../static/images/button_menu.png" width="30" height="30" alt="menu">
     </button>
 
     <ul class="link nav__wrapper">
@@ -15,14 +15,14 @@
         </a></li>
         <li><div class="list_button flex">
 
-            <form action="#login_window">
-                <input class="login_button_close" type="hidden" name="" value="" /> 
-                <button class="login_button">Войти</button>
+            <form>
+                <input class="login_button" type="button" value="Войти" onclick="window.location='#login_window'">
+                <!-- <button class="login_button">Войти</button> -->
             </form>
 
-            <form action="#sign_up_window">
-                <input class="login_button_close" type="hidden" name="" value="" /> 
-                <button class="register_button">Регистрация</button>
+            <form>
+                <input class="register_button" type="button" value="Зарегистрироваться" onclick="window.location='#sign_up_window'">
+                <!-- <button class="register_button">Регистрация</button> -->
             </form>
 
         </div></li>
