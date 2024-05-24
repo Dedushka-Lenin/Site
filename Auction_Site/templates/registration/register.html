@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link href="{% static 'styles/login_style.css'%}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="indentation">
+        <h1>Login</h1>
+        <hr>
+
+        {% if form.errors %}
+            <p>{{ form.errors.error }}</p>
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="post">
+            {{ form }}
+            {% csrf_token %}
+            <button type="submit" class="">submit</button>
+        </form>
+    </div>
+
+{% endblock %}

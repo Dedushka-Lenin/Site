@@ -16,21 +16,23 @@
         </a></li>
         <li><div class="list_button flex">
 
-            {% if 1 > 1 %}
+            {% if user.is_authenticated %}
 
-                <a href="{% url 'logaut' %}">logaut</a>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
 
             {% else %}
 
-                <a href="{% url 'login' %}">login</a>
-
-                <!-- <form>
-                    <input class="login_button" type="button" value="Войти" onclick="window.location='#login_window'">
+                <form action="{% url 'login' %}">
+                    <button class="login_button" type="submit">Войти</button>
                 </form>
 
-                <form>
-                    <input class="register_button" type="button" value="Зарегистрироваться" onclick="window.location='#sign_up_window'">
-                </form> -->
+                <form action="{% url 'register' %}">
+                    <button class="register_button" type="submit">Зарегистрироваться</button>
+                </form>
+
             {%endif%}
 
         </div></li>
