@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="wrapper site-header__wrapper">
+    <div class="link step"><a href='{% url "main_menu" %}'><h1> <img src="{% static 'images/application-logo(512x512).png' %}" width="50" height="50" alt="Логатип" />Efficiency Hub
+    </h1></a></div>
+
+    <button class="nav__toggle" aria-expanded="false" type="button">
+    <img src="{% static 'images/button_menu.png' %}" width="30" height="30" alt="menu">
+    </button>
+
+    <ul class="link nav__wrapper">
+        <li><a href='{% url "About_Us" %}'>О нас></a></li>
+        <li><a href='{% url "Projects" %}'>Проэкты></a></li>
+        <li><a href='{% url "Terms_of_use" %}'>
+            Пользовательское<br>соглашение>
+        </a></li>
+        <li><div class="list_button flex">
+
+            {% if 1 > 1 %}
+
+                <a href="{% url 'logaut' %}">logaut</a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}">login</a>
+
+                <!-- <form>
+                    <input class="login_button" type="button" value="Войти" onclick="window.location='#login_window'">
+                </form>
+
+                <form>
+                    <input class="register_button" type="button" value="Зарегистрироваться" onclick="window.location='#sign_up_window'">
+                </form> -->
+            {%endif%}
+
+        </div></li>
+    </ul>
+</nav>
