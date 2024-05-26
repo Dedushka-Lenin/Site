@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from login_app.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.views import View
 
@@ -20,11 +20,12 @@ class Register(View):
 
         if form.is_valid():
             form.save()
-            username = form.changed_data.get('username')
-            password = form.changed_data.get('password')
+
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('')
+            return redirect('main_menu')
         
         context = {
             'form': form
