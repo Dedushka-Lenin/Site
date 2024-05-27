@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block style %}
     <link href="{% static 'styles/login_style.css'%}" rel="stylesheet" type="text/css" >
@@ -10,7 +11,7 @@
 {% block content %}
 
     <div class="indentation">
-        <h1>Register</h1>
+        <h1>{% translate 'Register'%}</h1>
         <hr>
 
         {% if form.errors %}
@@ -20,7 +21,7 @@
         <form action="{% url 'register' %}" method="post">
             {{ form }}
             {% csrf_token %}
-            <button type="submit" class="">submit</button>
+            <button type="submit" class="">{% translate 'submit'%}</button>
         </form>
     </div>
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block style %}
     <link href="{% static 'styles/login_style.css'%}" rel="stylesheet" type="text/css" >
@@ -23,7 +24,7 @@
             <button type="submit" class="">submit</button>
         </form>
 
-        <a href="{% url 'password_reset' %}">Сброс пароля</a>
+        <a href="{% url 'password_reset' %}">Забыли пароль?</a>
 
     </div>
 
