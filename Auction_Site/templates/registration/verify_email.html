@@ -1,0 +1,11 @@
+{% load i18n %}{% auto exit %}
+{%blocktranslate %}You received this email because you requested account registration{{ site_name }}.{% endblocktranslate %}
+
+{% translate "Please go to the next page and confirm your registration:" %}
+{% link reset blocking %}
+{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+{% end block %}
+
+{%blocktranslate %}Command {{ site_name }}{% endblocktranslate %}
+
+{% endautoscape %}

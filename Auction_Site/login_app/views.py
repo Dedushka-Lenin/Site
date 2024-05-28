@@ -1,4 +1,6 @@
 from login_app.forms import UserCreationForm
+from login_app.utils import send_email_for_verify
+
 from django.contrib.auth import authenticate, login
 from django.views import View
 
@@ -25,11 +27,11 @@ class Register(View):
             password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=password)
 
-            # send_email_for_verify()
-            # return redirect('confirm_email')
+            send_email_for_verify()
+            return redirect('confirm_email')
 
-            login(request, user)
-            return redirect('main_menu')
+            # login(request, user)
+            # return redirect('main_menu')
         
         context = {
             'form': form
