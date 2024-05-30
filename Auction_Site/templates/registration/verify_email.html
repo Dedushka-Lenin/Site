@@ -1,11 +1,9 @@
-{% load i18n %}{% auto exit %}
-{%blocktranslate %}You received this email because you requested account registration{{ site_name }}.{% endblocktranslate %}
+{% load i18n %}{% autoescape off %}
 
-{% translate "Please go to the next page and confirm your registration:" %}
-{% link reset blocking %}
-{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
-{% end block %}
+Hi {{ user.get_username}}
 
-{%blocktranslate %}Command {{ site_name }}{% endblocktranslate %}
+Пожалуйста перейдите по ссылке чтобы закончить регистрацию
 
-{% endautoscape %}
+http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}
+
+{% endautoescape %}

@@ -7,6 +7,11 @@ from django.views import View
 
 from django.shortcuts import render, redirect
 
+
+class EmailVerify(View):
+    pass
+
+
 class Register(View):
     template_name = 'registration/register.html'
 
@@ -27,7 +32,7 @@ class Register(View):
             password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=password)
 
-            send_email_for_verify()
+            send_email_for_verify(request, user)
             return redirect('confirm_email')
 
             # login(request, user)
