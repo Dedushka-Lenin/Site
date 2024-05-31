@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+    <link href="{% static 'styles/login_style.css'%}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="indentation">
+
+        <h1>Подтверждение почты</h1>
+        
+        <p>Мы отправили вам по электронной почте инструкции по регистрации, если адрес электронной почты существует. Вы должны получить их в ближайшее время</p>
+        
+        <p>Если вы не получили электронное письмо, убедитесь, что вы ввели правильный адрес, и проверьте папку со спамом.</p>
+
+    </div>
+
+{% endblock %} 

@@ -16,11 +16,19 @@ def send_email_for_verify(request, user):
         "domain": current_site.domain,
         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
         "token": token_generator.make_token(user),
+
     }
 
 
-    massag = render_to_string('registration/verify_email.html', context=context)
+    messag = render_to_string(
+        'registration/verify_email.html',
+        context=context,
+    )
 
-    email = EmailMessage("Verify email", massag, to=[user.email])
+    email = EmailMessage(
+        "Verify email",
+        messag,
+        to=[user.email],
+    )
 
     email.send()
