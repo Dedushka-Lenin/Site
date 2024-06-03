@@ -19,5 +19,11 @@ urlpatterns = [
         name="verify_email",
     ),
 
+    path(
+        "invalid_verify/", 
+        TemplateView.as_view(template_name='registration/invalid_verify.html'),
+        name="invalid_verify",
+    ),
+
     path('register/',  Register.as_view(), name="register"),
 ]

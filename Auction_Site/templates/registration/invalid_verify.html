@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+    <link href="{% static 'styles/login_style.css'%}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="indentation">
+        <p>Ваша ссылка не корректна, залогинтесь снова</p>
+        <a href="{% 'login' %}">Войти</a>
+    </div>
+
+{% endblock %}
