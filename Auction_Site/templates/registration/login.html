@@ -11,7 +11,7 @@
 {% block content %}
 
     <div class="indentation">
-        <h1>Login</h1>
+        <h1>Войти</h1>
         <hr>
 
         {% if form.errors %}
@@ -21,10 +21,13 @@
         <form action="{% url 'login' %}" method="post">
             {{ form }}
             {% csrf_token %}
-            <button type="submit" class="">submit</button>
+            <button type="submit" class="">Войти</button>
         </form>
 
-        <a href="{% url 'password_reset' %}">Забыли пароль?</a>
+        <form action="{% url 'password_reset' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Сменить пароль</button>
+        </form>
 
     </div>
 

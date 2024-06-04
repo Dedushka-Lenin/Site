@@ -15,6 +15,7 @@ header .site-header__wrapper {
     padding-bottom: 1rem;
 }
 
+
 @media (min-width: 1000px) {
     header .site-header__wrapper {
         display: flex;
@@ -23,11 +24,18 @@ header .site-header__wrapper {
         padding-top: 0;
         padding-bottom: 0;
     }
+
+    header .profile {
+        top: 10px;
+    }
 }
 
 @media (min-width: 1001px) {
     header .nav__wrapper {
         display: flex;
+
+        position: absolute;
+        right: 7rem;
     }
 }
 
@@ -81,6 +89,11 @@ header .nav__toggle {
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
         background-color: rgba(180, 180, 180, 0.95);
     }
+
+    header .profile {
+        bottom: -30px;
+    }
+
 }
 
 /*----------------------------------------------------------------------------*/
@@ -95,9 +108,9 @@ header .step {
     margin: 10px 0 0 -2%;
 }
 
-header .link a:active,
-header .link a:hover,
-header .link a {
+header a:active,
+header a:hover,
+header a {
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
@@ -113,6 +126,7 @@ header .link li {
 header .list_button {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: -90px;
 }
 
 header .list_button button {
@@ -144,4 +158,33 @@ header .list_button .login_button {
 header .list_button .register_button {
     border-radius: 0px 10px 10px 0px;
     /* Закругление */
+}
+
+header .profile {
+    margin-left: 50px;
+    margin-bottom: 20px;
+
+    display: grid;
+
+    position: fixed;
+    right: 4%;
+}
+
+header .profile_ico {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 50%;
+
+    padding: 2px;
+
+    margin-left: 30%;
+}
+
+header .name {
+    position: relative;
+
+    margin-top: 1px;
+    margin-left: 30%;
+
+    white-space: nowrap;
 }

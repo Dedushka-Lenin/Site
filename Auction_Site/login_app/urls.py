@@ -2,9 +2,11 @@ from django.urls import path, include
 
 from django.views.generic import TemplateView
 
-from login_app.views import Register, EmailVerify
+from login_app.views import Register, EmailVerify, MyLoginView
 
 urlpatterns = [
+    path("login/", MyLoginView.as_view(), name="login"),
+
     path('',  include('django.contrib.auth.urls')),
 
     path(

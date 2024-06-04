@@ -16,8 +16,14 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.http import urlsafe_base64_decode
 
 
+from django.contrib.auth.views import LoginView
+from login_app.forms import AuthenticationForm
+
 
 User = get_user_model()
+
+class MyLoginView(LoginView):
+    form_class = AuthenticationForm
 
 class EmailVerify(View):
     
@@ -28,7 +34,10 @@ class EmailVerify(View):
 
             user.email_verify = True
 
+            user.save()
+
             login(request, user)
+            return redirect('main_menu')
         
         return redirect('invalid_verify')
 

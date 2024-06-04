@@ -1,24 +1,35 @@
-html {                                        /* Стиль шрифтов страницы */
-    font-family: "Gabriela", serif;           /* Имя шрифта */
-    font-weight: 600;                         /* Толщина шрифта */
-    font-style: normal;                       /* Cтиль шрифта */
-    background-color: rgb(240, 240, 240);   /* Фоновый цвет */
+html {
+    /* Стиль шрифтов страницы */
+    font-family: "Gabriela", serif;
+    /* Имя шрифта */
+    font-weight: 600;
+    /* Толщина шрифта */
+    font-style: normal;
+    /* Cтиль шрифта */
+    background-color: rgb(240, 240, 240);
+    /* Фоновый цвет */
 }
 
-body {                                        /* Стиль тела */
-    color: rgb(0, 0, 0);                    /* Цвет шрифтов */
-    font-size: 16px;                          /* Размер шрифта */
-    line-height: 2;                           /* Высота строки */
-    letter-spacing: 1px;                      /* Межбуквенный интервал */
-    word-break: break-word;                   /* Чтоб за рамки не выходило */
+body {
+    /* Стиль тела */
+    color: rgb(0, 0, 0);
+    /* Цвет шрифтов */
+    font-size: 16px;
+    /* Размер шрифта */
+    line-height: 2;
+    /* Высота строки */
+    letter-spacing: 1px;
+    /* Межбуквенный интервал */
+    word-break: break-word;
+    /* Чтоб за рамки не выходило */
 
     min-width: 800px;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.display_none{
+.display_none {
     display: none;
 }

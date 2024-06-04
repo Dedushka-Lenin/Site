@@ -13,28 +13,39 @@
         <li><a href='{% url "Projects" %}'>Проэкты></a></li>
         <li><a href='{% url "Terms_of_use" %}'>
             Пользовательское<br>соглашение>
-        </a></li>
-        <li><div class="list_button flex">
+        </a>
+    
 
-            {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
-                <form action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
+            <!-- <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form> -->
 
-            {% else %}
+            <li><a class="profile" href="#profile_menu">
 
-                <form action="{% url 'login' %}">
-                    <button class="login_button" type="submit">Войти</button>
-                </form>
+                <img class="profile_ico" src="{% static 'images/profile_menu.png' %}" alt="profile_menu" width="50" height="50">
 
-                <form action="{% url 'register' %}">
-                    <button class="register_button" type="submit">Зарегистрироваться</button>
-                </form>
+                <p class="name">{{user.username}}</p>
+            
+            </a></li>
 
-            {%endif%}
 
-        </div></li>
+        {% else %}
+        
+                <li><div class="list_button flex">
+                    <form action="{% url 'login' %}">
+                        <button class="login_button" type="submit">Войти</button>
+                    </form>
+
+                    <form action="{% url 'register' %}">
+                        <button class="register_button" type="submit">Зарегистрироваться</button>
+                    </form>
+
+                </div></li>
+
+        {%endif%}
+
     </ul>
 </nav>
