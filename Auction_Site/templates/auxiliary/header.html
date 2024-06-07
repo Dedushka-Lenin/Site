@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="wrapper site-header__wrapper">
-    <div class="link step"><a href='{% url "main_menu" %}'><h1> <img src="{% static 'images/application-logo(512x512).png' %}" width="50" height="50" alt="Логатип" />Efficiency Hub
+    <div class="link step"><a href='{% url "main_menu" %}'><h1> <img src="{% static 'images/application-logo(512x512).png' %}" width="50" height="50" alt="Логатип" /> Bid Bound
     </h1></a></div>
 
     <button class="nav__toggle" aria-expanded="false" type="button">
@@ -9,12 +9,19 @@
     </button>
 
     <ul class="link nav__wrapper">
+
+        <li><a href='{% url "auction" %}'>Аукционы></a></li>
+        <li><a href='{% url "orders" %}'>Заказы></a></li>
+
+        <li><div class = 'vr'></div></li>
+
         <li><a href='{% url "About_Us" %}'>О нас></a></li>
         <li><a href='{% url "Projects" %}'>Проэкты></a></li>
         <li><a href='{% url "Terms_of_use" %}'>
             Пользовательское<br>соглашение>
-        </a>
+        </a></li>
     
+        <li><div class = 'vr'></div></li>
 
         {% if user.is_authenticated %}
 

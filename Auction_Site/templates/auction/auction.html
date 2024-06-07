@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link href="{% static 'styles/auction_style.css'%}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+{% block content %}
+
+    {% if is_going_on %}
+
+        <div class="inscription">
+        
+            <p>Аукцион идет до:  {{ end }}</p>
+            <p>Шаг аукциона: {{auction_step}}₽</p>
+
+        </div>
+
+        <div class="lots">
+            {% include "auction/lots.html" %}
+        </div>
+
+    {% else %}
+
+        <div class="inscription">
+
+            <p>Аукцион закончился или ещё не начался </p>
+        
+        </div>
+
+    {%endif%}
+
+{% endblock %}

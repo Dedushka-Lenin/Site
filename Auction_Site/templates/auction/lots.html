@@ -1,0 +1,13 @@
+{% load static %}
+
+{% for i in lots %}
+
+    <div class="inscription">
+
+
+        <img src="{% get_static_prefix %}{{ path }}" alt="">
+        <p>{{ i }}</p>
+
+    </div>
+
+{%endfor%}

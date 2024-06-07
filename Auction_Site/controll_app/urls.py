@@ -19,15 +19,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+from controll_app.views import Auction
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('orders/', TemplateView.as_view(template_name='auction/orders.html'), name='orders'),
 
-    path('',  TemplateView.as_view(template_name='main_menu.html'), name='main_menu'),
-
-    path('accounts/',  include('login_app.urls')),
-    path('auction/',  include('controll_app.urls')),
-
-    path('About_Us/', TemplateView.as_view(template_name='info/About_Us.html'), name='About_Us'),
-    path('Projects/', TemplateView.as_view(template_name='info/Projects.html'), name='Projects'),
-    path('Terms_of_use/', TemplateView.as_view(template_name='info/Terms_of_use.html'), name='Terms_of_use'),
+    path('auction/',  Auction.as_view(), name="auction"),
 ]

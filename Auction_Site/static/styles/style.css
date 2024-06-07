@@ -33,3 +33,9 @@ body {
 .display_none {
     display: none;
 }
+
+.vr {
+    height: 80%;
+    margin: 10px;
+    border-left: 2px solid #000000;
+}
