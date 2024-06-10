@@ -7,24 +7,36 @@
 
 {% block content %}
 
-    {% if is_going_on %}
+    {% if user.is_authenticated %}
 
-        <div class="inscription">
-        
-            <p>Аукцион идет до:  {{ end }}</p>
-            <p>Шаг аукциона: {{auction_step}}₽</p>
+        {% if is_going_on %}
 
-        </div>
+            <div class="inscription">
+            
+                <p>Аукцион идет до:  {{ end }}</p>
+                <p>Шаг аукциона: {{auction_step}}₽</p>
 
-        <div class="lots">
-            {% include "auction/lots.html" %}
-        </div>
+            </div>
 
+            <div class="lots">
+                {% include "auction/lots.html" %}
+            </div>
+
+        {% else %}
+
+            <div class="inscription">
+
+                <p>Аукцион закончился или ещё не начался </p>
+            
+            </div>
+
+        {%endif%}
+    
     {% else %}
 
         <div class="inscription">
 
-            <p>Аукцион закончился или ещё не начался </p>
+            <p>Вы не верефецированны, зарегестрируйтесь или войдите в аккаунт</p>
         
         </div>
 

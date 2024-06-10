@@ -4,9 +4,25 @@
 
     <div class="inscription">
 
+        <img src='{{ i.path.url }}' alt="картинка лота">
 
-        <img src="{% get_static_prefix %}{{ path }}" alt="">
-        <p>{{ i }}</p>
+        <p>Название: {{ i.name }}</p><hr>
+        <p>Описание: {{ i.Description }}</p><hr>
+
+        <div class="flex">
+            <p>Цена: {{ i.price }}</p>
+
+            <form action="{% url 'place_a_bet' %}" method="post">
+
+                {% csrf_token %}
+                
+                <input type="hidden"  name="name" value="{{ i.name }}"  />
+                <input type="hidden"  name="auction_step" value="{{ auction_step }}"  />
+                <input name="{{ i.name }}"  type="number">
+                <input type="submit" value="Сделать ставку">
+            </form>
+
+        </div>
 
     </div>
 

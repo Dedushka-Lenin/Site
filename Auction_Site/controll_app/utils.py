@@ -2,6 +2,8 @@ import datetime
 import json
 import os
 
+from .models import Lots
+
 def comparison(date):
 
     date = date.split('-')
@@ -42,21 +44,19 @@ def time(date):
     return f'{date[2]}.{date[1]}.{date[0]}({date[3]}:00)'
 
 
-def get_subdirectories(directory):
-    lots = [name for name in os.listdir(directory) if os.path.isdir(os.path.join(directory, name))]
+def get_lots():
+    lots = Lots.objects.all()
+
+    lots_inf = []
 
     for i in range(len(lots)):
-
-        with open(f'static/controll_auction/auction/{lots[i]}/description.json', encoding = "utf-8") as f:
-                file_content = f.read()
-                templates = json.loads(file_content)
+        
             
-        lots[i] = {
-            "name": templates['name'],
-            "price": templates['price'],
-            "Description": templates['Description'],
-            "path":f'controll_auction/auction/{lots[i]}/image.png',
-        }
+        lots_inf.append({
+            "name": lots[i].name,
+            "price": lots[i].price,
+            "Description": lots[i].Description,
+            "path": lots[i].ing,
+        })
 
-
-    return lots
+    return lots_inf

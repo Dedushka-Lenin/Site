@@ -17,7 +17,7 @@ header .site-header__wrapper {
 }
 
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
     header .site-header__wrapper {
         display: flex;
         justify-content: space-between;
@@ -31,7 +31,7 @@ header .site-header__wrapper {
     }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 1201px) {
     header .nav__wrapper {
         display: flex;
 
@@ -40,7 +40,7 @@ header .site-header__wrapper {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     header .nav__wrapper {
         position: absolute;
         top: 100%;
@@ -70,7 +70,7 @@ header .nav__toggle {
     display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     header .nav__toggle {
         background-color: rgba(200, 200, 200, 0.95);
         border: 4px solid rgb(30, 30, 30);
@@ -178,7 +178,13 @@ header .profile_ico {
 
     padding: 2px;
 
-    margin-left: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-68%, 0%)
 }
 
 header .name {
