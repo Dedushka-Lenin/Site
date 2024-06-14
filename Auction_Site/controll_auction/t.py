@@ -1,25 +1,58 @@
-import json
-import os
+from django.template.loader import render_to_string
+from controll_app.utils import comparison
+from django.core.mail import EmailMessage
 
+from controll_app.models import Lots
 
-def get_subdirectories(directory):
-    return [name for name in os.listdir(directory) if os.path.isdir(os.path.join(directory, name))]
- 
-t = get_subdirectories('controll_auction/auction')
+def startup_routine():
+    pass
 
-print(type(t))
+    def transition():
 
-for i in range(len(t)):
-
-    with open(f'controll_auction/auction/{t[i]}/description.json') as f:
-            file_content = f.read()
-            templates = json.loads(file_content)
+        lots = Lots.objects.all()
         
-    t[i] = {
-        "name": templates['name'],
-        "price": templates['price'],
-        "Description": templates['Description'],
-    }
+        for i in range(len(lots)):
+            
+            if lot.end == False:
+                lot = Lots.objects.get(name=lots[i].name)
+
+                lot.end = comparison(lots[i].end_time)
+
+                lot.save()
+
+            if lot.end == True:
+
+                print(i, lot.id)
+
+                lot = {
+                    'name': lot.name,
+                    'price': lot.price,
+                    'Description': lot.Description,
+                    'ing': lot.ing,
+                    'recipient': lot.recipient,
+                }
 
 
-print(t)
+    def send_email_for_verify(user):
+
+        context = {
+            "user": user,
+        }
+
+
+        messag = render_to_string(
+            'examination/examination.html',
+            context=context,
+        )
+
+        email = EmailMessage(
+            "Verify email",
+            messag,
+            to=[user],
+        )
+
+        email.send()
+
+    # send_email_for_verify('admin@admin.com')   
+    
+transition()

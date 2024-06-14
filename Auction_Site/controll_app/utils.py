@@ -1,6 +1,4 @@
 import datetime
-import json
-import os
 
 from .models import Lots
 
@@ -38,10 +36,10 @@ def comparison(date):
     return(False)
 
 
-def time(date):
-    date = date.split('-')
+# def time(date):
+#     date = date.split('-')
 
-    return f'{date[2]}.{date[1]}.{date[0]}({date[3]}:00)'
+#     return f'{date[2]}.{date[1]}.{date[0]}({date[3]}:00)'
 
 
 def get_lots():
@@ -51,12 +49,54 @@ def get_lots():
 
     for i in range(len(lots)):
         
+        lot = Lots.objects.get(name=lots[i].name)
+
+        lot.end = comparison(lots[i].end_time)
+
+        lot.save()
+
+        print(lots[i].end)
             
         lots_inf.append({
             "name": lots[i].name,
             "price": lots[i].price,
             "Description": lots[i].Description,
             "path": lots[i].ing,
+
+            "end": lots[i].end,
+            "end_time": lots[i].end_time,
+            "recipient": lots[i].recipient, 
+            "auction_step": lots[i].auction_step,
         })
 
     return lots_inf
+
+
+def context_generator(lot, error = ''):
+
+    lots = Lots.objects.all()
+
+
+
+    for i in range(len(lots)):
+            
+        if lots[i].name == lot:
+
+            if lots[i].end == False:
+
+                context = {
+                    "name": lots[i].name,
+                    "price": lots[i].price,
+                    "Description": lots[i].Description,
+                    "path": lots[i].ing,
+
+                    "end": lots[i].end,
+                    "end_time": lots[i].end_time,
+                    "recipient": lots[i].recipient, 
+                    "auction_step": lots[i].auction_step,
+
+                    "type": "product",
+                    "error": error,
+                }
+                
+                return context

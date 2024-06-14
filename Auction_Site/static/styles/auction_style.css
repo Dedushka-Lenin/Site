@@ -1,17 +1,68 @@
 main .inscription {
-    max-width: 800px;
+    max-width: 1500px;
 
     font-size: 24px;
     margin: 15% 10% 5% 10%;
+
 }
 
-main .inscription p {
-    font-size: 18px;
-}
-
-main .lots {
-    /* max-width: 800px; */
+main .product {
+    max-width: 1200px;
 
     font-size: 24px;
-    margin: 5% 10% 10% 10%;
+
+    margin-left: 10%;
+    margin-top: 5%;
+
+    padding-right: 5%;
+
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+main .lots p {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+main a:active,
+main a:hover,
+main a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+main .error {
+    font-size: 14px;
+}
+
+main .form_input {
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+main .form_input input[type='number'] {
+
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 0, 0);
+
+    border-radius: 10px 0px 0px 10px;
+    /* Закругление */
+    border-right: none;
+}
+
+main .form_input input[type='submit'] {
+
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 0, 0);
+
+    border-radius: 0px 10px 10px 0px;
+    /* Закругление */
+}
+
+main .flag {
+    font-size: 14px;
+    margin-top: 4%;
+    margin-left: 2%;
 }

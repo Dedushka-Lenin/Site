@@ -1,29 +1,22 @@
 {% load static %}
 
-{% for i in lots %}
 
-    <div class="inscription">
+<div class="inscription">
+    {% for i in lots %}
 
-        <img src='{{ i.path.url }}' alt="картинка лота">
+        {% if not i.end %}
+            <a href="{{ i.name }}" class="product flex">
 
-        <p>Название: {{ i.name }}</p><hr>
-        <p>Описание: {{ i.Description }}</p><hr>
+                    <img src='{{ i.path.url }}' alt="картинка лота" width="100" height="100">
 
-        <div class="flex">
-            <p>Цена: {{ i.price }}</p>
+                    <p>{{ i.name }}</p><hr>
+                    <p>Доступен до: {{ i.end_time }}</p><hr>
+                    <p>Цена: {{ i.price }}₽</p>
 
-            <form action="{% url 'place_a_bet' %}" method="post">
+            </a>
 
-                {% csrf_token %}
-                
-                <input type="hidden"  name="name" value="{{ i.name }}"  />
-                <input type="hidden"  name="auction_step" value="{{ auction_step }}"  />
-                <input name="{{ i.name }}"  type="number">
-                <input type="submit" value="Сделать ставку">
-            </form>
+        {% endif %}
 
-        </div>
+    {%endfor%}
+</div>
 
-    </div>
-
-{%endfor%}

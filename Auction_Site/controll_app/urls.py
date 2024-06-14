@@ -22,8 +22,9 @@ from controll_app import views
 
 urlpatterns = [
     path('orders/', TemplateView.as_view(template_name='auction/orders.html'), name='orders'),
+    path('lots/',  views.Auction.as_view(), name="lots"),
 
-    path('auction/',  views.Auction.as_view(), name="auction"),
+    path('lots/<str:lot>',  views.Product.as_view(), name="lot"),
 
     path('place_a_bet', views.place_a_bet, name='place_a_bet')
 ]

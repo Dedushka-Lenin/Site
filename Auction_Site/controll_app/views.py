@@ -1,11 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views import View
 
-from controll_app.utils import comparison, time, get_lots
+from controll_app.utils import get_lots, context_generator
 
 from .models import Lots
-
-import json
 
 
 # Create your views here.
@@ -14,21 +12,19 @@ class Auction(View):
 
     def get(self, request):
 
-        with open('controll_auction/auction/auction.json', encoding = "utf-8") as f:
-            file_content = f.read()
-            templates = json.loads(file_content)
-
-
-        if comparison(templates['end']): is_going_on = False
-        elif not comparison(templates['start']): is_going_on = False
-        else: is_going_on = True
-
         context = {
-            'is_going_on': is_going_on,
-            'end': time(templates['end']),
-            'auction_step': templates['auction_step'],
             'lots': get_lots(),
+            'type': 'auction'
         }
+
+        return render(request, 'auction/auction.html', context=context)
+    
+
+class Product(View):
+
+    def get(self, request, lot):
+
+        context = context_generator(lot)
 
         return render(request, 'auction/auction.html', context=context)
     
@@ -36,20 +32,30 @@ class Auction(View):
 
 def place_a_bet(request):
     auction_step = int(request.POST.get('auction_step' ,1))
+    mail = request.POST.get('mail' ,1)
 
     name = request.POST.get('name' ,1)
-    bid = int(request.POST.get(name ,1))
+    
+    bid = request.POST.get(name ,1)
 
-    price = Lots.objects.get(name=name)
+    if not bid == '':
+        bid = int(bid)
+        lot = Lots.objects.get(name=name)
 
+        if lot.price < bid and (bid - lot.price) >= auction_step:
+            lot.price = bid
+            lot.recipient = mail
 
-    if price.price < bid and (bid - price.price) > auction_step:
+            lot.save()
 
-        price.price = bid
+            context = context_generator(name)
 
-        price.save()
+            return render(request, 'auction/auction.html', context=context)
+        
+        context = context_generator(name, f'Ваша ставка должна быть больше предыдущей, минимум на {auction_step}')
 
-    # print(name, bid, price.price)
+        return render(request, 'auction/auction.html', context=context)
+    
+    context = context_generator(name, 'Поле ввода не должно быть пустым')
 
-
-    return redirect('auction')
+    return render(request, 'auction/auction.html', context=context)

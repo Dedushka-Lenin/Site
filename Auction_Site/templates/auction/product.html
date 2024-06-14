@@ -1,0 +1,60 @@
+{% load static %}
+
+{% if not end %}
+    <div class="inscription">
+
+        <p>Будет доступно до:  {{ end_time }}</p>
+        <p>Шаг аукциона: {{auction_step}}₽</p>
+
+        <div class="inscription">
+
+            <img src='{{ path.url }}' alt="картинка лота">
+        
+            <p>Название: {{ name }}</p><hr>
+            <p>Описание: {{ Description }}</p><hr>
+
+            <div class="error">
+                {% if not error == '' %}
+                    <p>Ошибка: {{error}}</p>
+                {%endif%}
+            </div>
+        
+            <div class="flex">
+                <p>Цена: {{ price }}</p>
+        
+                <form class="form_input" action="{% url 'place_a_bet' %}" method="post">
+        
+                    {% csrf_token %}
+                    
+                    <input type="hidden"  name="name" value="{{ name }}"  />
+                    <input type="hidden"  name="auction_step" value="{{ auction_step }}"  />
+                    <input type="hidden"  name="mail" value="{{user}}"  />
+
+                    <div class="flex">
+                        <input name="{{ name }}"  type="number">
+                        <input type="submit" value="Сделать ставку">
+                    </div>
+                </form>
+        
+                <div class="flag">
+                    {% if user.email == recipient %}
+                        <p>Сейчас действует ваша ставка</p>
+                    {%endif%}
+                </div>
+
+            </div>
+        
+        </div>
+
+    </div>
+
+{% else %}
+
+    <div class="inscription">
+
+        Аукцион закончился {{end}}
+
+    </div>
+
+{%endif%}
+

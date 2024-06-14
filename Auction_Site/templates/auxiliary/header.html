@@ -10,7 +10,7 @@
 
     <ul class="link nav__wrapper">
 
-        <li><a href='{% url "auction" %}'>Аукционы></a></li>
+        <li><a href='{% url "lots" %}'>Аукционы></a></li>
         <li><a href='{% url "orders" %}'>Заказы></a></li>
 
         <li><div class = 'vr'></div></li>
@@ -24,11 +24,6 @@
         <li><div class = 'vr'></div></li>
 
         {% if user.is_authenticated %}
-
-            <!-- <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form> -->
 
             <li><a class="profile" href="#profile_menu">
 
