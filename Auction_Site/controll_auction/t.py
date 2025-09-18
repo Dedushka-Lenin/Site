@@ -4,55 +4,58 @@ from django.core.mail import EmailMessage
 
 from controll_app.models import Lots
 
+
 def startup_routine():
     pass
 
-    def transition():
 
-        lots = Lots.objects.all()
-        
-        for i in range(len(lots)):
-            
-            if lot.end == False:
-                lot = Lots.objects.get(name=lots[i].name)
+def transition():
 
-                lot.end = comparison(lots[i].end_time)
+    lots = Lots.objects.all()
 
-                lot.save()
+    for i in range(len(lots)):
 
-            if lot.end == True:
+        if lot.end == False:
+            lot = Lots.objects.get(name=lots[i].name)
 
-                print(i, lot.id)
+            lot.end = comparison(lots[i].end_time)
 
-                lot = {
-                    'name': lot.name,
-                    'price': lot.price,
-                    'Description': lot.Description,
-                    'ing': lot.ing,
-                    'recipient': lot.recipient,
-                }
+            lot.save()
 
+        if lot.end == True:
 
-    def send_email_for_verify(user):
+            print(i, lot.id)
 
-        context = {
-            "user": user,
-        }
+            lot = {
+                "name": lot.name,
+                "price": lot.price,
+                "Description": lot.Description,
+                "ing": lot.ing,
+                "recipient": lot.recipient,
+            }
 
 
-        messag = render_to_string(
-            'examination/examination.html',
-            context=context,
-        )
+def send_email_for_verify(user):
 
-        email = EmailMessage(
-            "Verify email",
-            messag,
-            to=[user],
-        )
+    context = {
+        "user": user,
+    }
 
-        email.send()
+    messag = render_to_string(
+        "examination/examination.html",
+        context=context,
+    )
 
-    # send_email_for_verify('admin@admin.com')   
-    
+    email = EmailMessage(
+        "Verify email",
+        messag,
+        to=[user],
+    )
+
+    email.send()
+
+
+# send_email_for_verify('admin@admin.com')
+
+
 transition()

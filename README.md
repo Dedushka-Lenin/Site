@@ -1,21 +1,20 @@
 # Site
 
-BidMasters.com
-AuctionAce.com
-BiddingWarriors.com
-AuctionBazaar.com
-BidBound.com
 
-<!-- {% extends 'base.html' %}
-{% load static %}
+запускай каманды вот эти и будет работать
 
-{% block style %}
-    
-{% endblock %}
+pip install -r requirements.txt
 
-{% block content %}
+python manage.py makemigrations
 
-{% endblock %} -->
+python manage.py migrate
+
+python manage.py createsuperuser
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 # pip freeze > requirements.txt // Заполняет requirements
 

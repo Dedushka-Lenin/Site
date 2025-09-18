@@ -15,7 +15,7 @@ site_admin - admin@admin.com
 cброс пароля формы.html
 
 logged_out.html
-password_change_donehhtml
+password_change_doneh.html
 password_change form.html
 password_reset_complete.html
 password_reset_confirm.html
